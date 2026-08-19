@@ -1,0 +1,586 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(0, 0, 0, 0.82);
+
+  backdrop-filter: blur(18px);
+
+  animation: overlayIn 0.3s ease;
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   MODAL
+======================================== */
+
+.movie-modal {
+  position: relative;
+
+  width: min(1100px, 100%);
+
+  max-height: 92vh;
+
+  overflow-y: auto;
+
+  border-radius: 28px;
+
+  background: #09090c;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.8),
+    0 0 80px rgba(124, 58, 237, 0.1);
+
+  animation: modalIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+  scrollbar-width: thin;
+  scrollbar-color: #333 #09090c;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ========================================
+   CLOSE
+======================================== */
+
+.close-modal {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  z-index: 20;
+
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  backdrop-filter: blur(15px);
+
+  color: white;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.close-modal:hover {
+  background: #7c3aed;
+
+  border-color: #a78bfa;
+
+  transform: rotate(90deg) scale(1.08);
+}
+
+/* ========================================
+   HERO
+======================================== */
+
+.modal-hero {
+  position: relative;
+
+  min-height: 560px;
+
+  display: flex;
+  align-items: flex-end;
+
+  overflow: hidden;
+
+  padding: 60px;
+}
+
+/* Background */
+
+.modal-backdrop {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: blur(3px);
+
+  transform: scale(1.08);
+
+  opacity: 0.45;
+}
+
+.modal-backdrop-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #09090c 0%,
+      rgba(9, 9, 12, 0.92) 35%,
+      rgba(9, 9, 12, 0.55) 70%,
+      rgba(9, 9, 12, 0.8) 100%
+    ),
+    linear-gradient(0deg, #09090c 0%, transparent 45%);
+}
+
+/* Poster */
+
+.modal-poster-container {
+  position: relative;
+
+  z-index: 2;
+
+  flex-shrink: 0;
+
+  width: 260px;
+}
+
+.modal-poster {
+  width: 100%;
+
+  aspect-ratio: 2 / 3;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+
+  transition: transform 0.4s ease;
+}
+
+.modal-poster:hover {
+  transform: scale(1.025);
+}
+
+/* Hero content */
+
+.modal-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 600px;
+
+  padding-left: 45px;
+
+  padding-bottom: 15px;
+}
+
+.modal-type {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color: #a78bfa;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.modal-hero-content h2 {
+  margin: 0 0 18px;
+
+  color: white;
+
+  font-size: clamp(38px, 5vw, 62px);
+
+  line-height: 0.98;
+
+  letter-spacing: -2px;
+
+  font-weight: 900;
+}
+
+/* ========================================
+   META
+======================================== */
+
+.modal-meta {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  color: #b4b4be;
+
+  font-size: 13px;
+
+  margin-bottom: 18px;
+}
+
+.modal-rating {
+  color: #facc15;
+
+  font-weight: 800;
+}
+
+.modal-genres {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-bottom: 25px;
+}
+
+.modal-genres span {
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: #d4d4dc;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+/* ========================================
+   WATCH BUTTON
+======================================== */
+
+.modal-watch-btn {
+  height: 50px;
+
+  padding: 0 25px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background: linear-gradient(135deg, #9b5cff, #6d28d9);
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: 0 12px 35px rgba(124, 58, 237, 0.35);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.modal-watch-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 18px 45px rgba(124, 58, 237, 0.5);
+}
+
+/* ========================================
+   BODY
+======================================== */
+
+.modal-body {
+  padding: 0 60px 55px;
+
+  background: #09090c;
+}
+
+/* Section */
+
+.modal-section {
+  padding-top: 30px;
+}
+
+.modal-section h3 {
+  margin: 0 0 15px;
+
+  font-size: 18px;
+
+  color: white;
+}
+
+.modal-plot {
+  max-width: 800px;
+
+  margin: 0;
+
+  color: #9999a5;
+
+  font-size: 15px;
+
+  line-height: 1.85;
+}
+
+/* ========================================
+   PEOPLE
+======================================== */
+
+.movie-people {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+
+  margin-top: 35px;
+}
+
+.person {
+  padding: 20px;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.person:hover {
+  background: rgba(124, 58, 237, 0.08);
+
+  border-color: rgba(139, 92, 246, 0.25);
+}
+
+.person span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #696974;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.person strong {
+  color: #ddd;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+/* ========================================
+   EXTRA INFO
+======================================== */
+
+.movie-extra {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1px;
+
+  margin-top: 35px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 17px;
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.movie-extra > div {
+  padding: 18px;
+
+  background: #0d0d11;
+}
+
+.movie-extra span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #666672;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.movie-extra strong {
+  color: #ccc;
+
+  font-size: 13px;
+}
+
+/* ========================================
+   LOADING
+======================================== */
+
+.modal-loading {
+  min-height: 250px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  color: #777;
+}
+
+.loader {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  border: 3px solid rgba(255, 255, 255, 0.08);
+
+  border-top-color: #8b5cf6;
+
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .modal-hero {
+    min-height: auto;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 70px 25px 35px;
+
+    text-align: center;
+  }
+
+  .modal-poster-container {
+    width: 200px;
+
+    margin-bottom: 30px;
+  }
+
+  .modal-hero-content {
+    padding: 0;
+
+    max-width: 100%;
+  }
+
+  .modal-hero-content h2 {
+    font-size: 38px;
+
+    letter-spacing: -1px;
+  }
+
+  .modal-meta,
+  .modal-genres {
+    justify-content: center;
+  }
+
+  .modal-body {
+    padding: 0 25px 35px;
+  }
+
+  .movie-people {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-extra {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 450px) {
+  .modal-hero-content h2 {
+    font-size: 30px;
+  }
+
+  .movie-extra {
+    grid-template-columns: 1fr;
+  }
+
+  .close-modal {
+    top: 12px;
+    right: 12px;
+  }
+}

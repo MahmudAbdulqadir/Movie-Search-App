@@ -2,11 +2,121 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>movie</title>
+
+    <!-- Primary SEO -->
+    <title>CineFind — Search Movies & Discover Films</title>
+
+    <meta
+      name="description"
+      content="CineFind helps you search movies and discover films with ratings, genres, cast, plots, release dates, and detailed movie information."
+    />
+
+    <meta
+      name="keywords"
+      content="movie search, movie finder, search movies, discover movies, movie database, movie ratings, movie genres, film information, movie cast, movie plots"
+    />
+
+    <meta name="author" content="CineFind" />
+
+    <meta name="robots" content="index, follow" />
+
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://YOUR-DOMAIN.com/" />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#08080b" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+
+    <meta
+      property="og:title"
+      content="CineFind — Search Movies & Discover Films"
+    />
+
+    <meta
+      property="og:description"
+      content="Search movies and discover ratings, genres, cast, plots, release dates, and detailed film information."
+    />
+
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
+
+    <meta property="og:site_name" content="CineFind" />
+
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/og-image.jpg" />
+
+    <meta property="og:image:alt" content="CineFind movie discovery platform" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta
+      name="twitter:title"
+      content="CineFind — Search Movies & Discover Films"
+    />
+
+    <meta
+      name="twitter:description"
+      content="Search movies and discover detailed information about your favorite films."
+    />
+
+    <meta name="twitter:image" content="https://YOUR-DOMAIN.com/og-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Web App -->
+    <meta name="application-name" content="CineFind" />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://www.omdbapi.com" />
+
+    <link rel="preconnect" href="https://image.tmdb.org" />
+
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CineFind",
+        "alternateName": "CineFind Movie Search",
+        "url": "https://YOUR-DOMAIN.com/",
+        "description": "Search movies and discover detailed information about films.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://YOUR-DOMAIN.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CineFind",
+        "url": "https://YOUR-DOMAIN.com/"
+      }
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
+
+    <noscript>
+      CineFind is a movie search and discovery website where you can search
+      movies and explore ratings, genres, cast, plots, and other movie
+      information.
+    </noscript>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
